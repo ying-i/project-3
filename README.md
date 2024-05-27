@@ -2,9 +2,6 @@ pip install -r requirements.txt
 
 flask run
 
-login email:yingyinggu79@gmail.com
-      password:123456
-
 MongoDB
 database: stories
 collection: story
