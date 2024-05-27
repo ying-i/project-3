@@ -1,0 +1,13 @@
+gradio_client
+flask 
+pymongo[srv]
+gunicorn
+# we still use flask run our app locally, and gunicorn is gonna be used only in render.com
+python-dotenv
+# allows you to load environment variables from .env file
+passlib
+# password hashing (or encryption) with passlib 
+flask-wtf
+flask-security
+email-validator
+

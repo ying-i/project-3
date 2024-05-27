@@ -1,0 +1,171 @@
+/* this css file won't be used! just draft !!!!!!!*/
+
+
+html{
+    font-family: Arial, sans-serif;
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: inherit;
+}
+
+body{
+    box-sizing: border-box;
+    cursor: none;
+}
+
+.cursor-dot{
+   width: 5px;
+   height: 5px;
+   background-color: rgb(158, 77, 233);  
+}
+
+.cursor-outline{
+    width: 30px;
+    height:30px;
+    border: 2px solid rgb(191, 146, 230);
+}
+
+.cursor-dot,
+.cursor-outline{
+    position:fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.navbar{
+    max-width: 640px;
+    margin: 50px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 24px;
+}
+
+.navbar__brand{
+    display: flex;
+    align-items: center;
+}
+
+.navbar__logo{
+    margin-right: 30px;
+}
+
+.navbar__navigation{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    list-style: none;
+    color:#5c6b70;
+}
+
+.navbar__navigation-item{
+    margin-left: 50px;
+}
+
+.navbar__link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.main{
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h2{
+    color:rgb(167, 102, 228);   
+    font-size: 30px;
+    font-weight: 100;
+    font-family:cursive;
+    ;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__image{
+    background-color:rgb(210, 180, 235);
+    font-weight: bold;
+    padding: 7px 10px;
+    border-radius: 20px;
+    color:white;
+    font-size:16px;
+    display: block;
+    align-items:centera
+}
+
+.input__image{
+    font-size: 16px;
+    color: #586569;
+    margin-top: 10px;
+}
+
+.form__temperature{
+    color: rgb(106, 31, 172);
+    font-size: 19px;
+    margin-top:20px;
+    margin-bottom: 40px;
+}
+
+.form__max_new_tokens{
+    color: rgb(106, 31, 172);
+    font-size: 19px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.form__top_p{
+    color: rgb(106, 31, 172);
+    font-size: 19px;
+    margin-top:20px;
+    margin-bottom: 10px;
+}
+
+.form__repetition_penalty{
+    color: rgb(106, 31, 172);
+    font-size: 19px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.inputs__submit{
+    background-color:rgb(210, 180, 235);
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 7px 10px;
+    border-radius: 20px;
+    color:white;
+    cursor:pointer;
+}
+
+.inputs__submit:hover{
+    background-color: rgb(178, 123, 230);
+}
+
+.form__submit{
+    background-color: rgb(210, 180, 235);
+    border: none;
+    font-size: 19px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color:white;
+    cursor:pointer;
+}
+
+.form__submit:hover{
+    background-color: rgb(178, 123, 230);
+}

@@ -1,0 +1,90 @@
+<!-- this home.html won't be used !!!!!!, just a draft -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Generate Story</title>
+        <!-- <link rel="stylesheet" href="/static/css/main.css" />  -->
+        <link rel="stylesheet" href="{{ url_for('pages.static', filename='css/main.css') }}" />
+    </head>
+<body>
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- <script src="/static/css/script.js"></script> -->
+    <script src="{{ url_for('pages.static', filename='css/script.js') }}"></script>
+    <!-- !+tab -->
+    <!-- 
+    Make sure that the index.html file is in a folder named templates in the same directory as app.py.
+     -->
+     <header class="navbar">
+        <div class="navbar__brand">
+            <img class="navbar__logo" src="/static/logo.svg" alt="the web logo"/>Story Generator
+        </div>
+        <ul class="navbar__navigation">
+            <li class="navbar__navigation-item"><a href="/home" class="navbar__link">Home</a></li>
+            <li class="navbar__navigation-item"><a href="/recent_story" class="navbar__link">Recent</a></li>
+            <li class="navbar__navigation-item"><a href="#" class="navbar__link">Logout</a></li>
+            
+        </ul>  
+     </header>
+     <main class="main">
+        <section>
+            <h2>Generating a story...</h2> 
+            <!-- the encoding type is typically used when have file uploads in the form -->
+            <form class="form" method="POST" enctype="multipart/form-data">
+                <label for="image"  class="form__image">Upload Image:</label>
+                <input type="file" class="input__image" name="image" id="image" accept="image/*" required><br>
+                <button type="button" class="inputs__submit" onclick="toggleAdditionalinputs()">Additional Inputs:</button>
+                <div id="additionalInputs" style="display: none;">
+                    <label for="temperature" class="form__temperature">Temperature:</label>
+                    <input type="number" name="temperature" id="temperature" step="0.05" min="0.0" max="1.0" value="0.9" required><br>
+
+                    <label for="max_new_tokens" class="form__max_new_tokens">Max New Tokens:</label>
+                    <input type="number" name="max_new_tokens" id="max_new_tokens" min="0" max="3000" value="1500" required><br>
+
+                    <label for="top_p" class="form__top_p">Top-p (Nucleus Sampling):</label>
+                    <input type="number" name="top_p" id="top_p" step="0.05" min="0.0" max="1.0" value="0.90" required><br>
+
+                    <label for="repetition_penalty" class="form__repetition_penalty">Repetition Penalty:</label>
+                    <input type="number" name="repetition_penalty" id="repetition_penalty" step="0.05" min="1.0" max="2.0" value="1.2" required><br>
+                </div><br>
+                
+                <button type="submit" class="form__submit">Generate</button>
+            </form>
+        </section>
+        <section>
+            {% if result %}
+                <h2>Generated Story:</h2>
+                <p>{{ result }}</p>
+            {% endif %}
+        </section>
+        <section>
+            <h2>Recent Stories</h2>
+            {% for story in stories %}
+            <article class="story">
+                <!-- stories.append((image, result, formatted_date)) 
+                    story[0], story[1], story[2], datetime.datetime.strptime(story[2], "%Y-%m-%d").strftime("%b %d")
+                -->
+                <div>
+                  <h2 class="story__title">{{ story[1] | trunctae(30, true) }}</h2>
+                  <time class="story__date" datetime="{{ story[2] }}">• {{ story[3] }}</time>
+                  <!-- datetime="{{ story[2] }}: make sure that the software still understand it as being the correct date
+                    {{ story[3] }}: showing a nicer way of displaying the date in text
+                -->
+                </div>
+                <p class="entry__content">
+                  {{ story[1] }}
+                </p>
+              </article>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>
+
+
+
